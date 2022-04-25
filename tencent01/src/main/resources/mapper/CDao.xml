@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tencent.dao.CDao">
+
+    <select id="selectById" resultType="com.tencent.model.C">
+        select B,aaS,bbS,ccS,aaA,bbA,ccA,aaSS,aaC,ddS
+        from C where B like '%#{slice}%'
+    </select>
+
+    <update id="updateC" parameterType="com.tencent.model.C">
+        update C set aaS=#{aaS},bbS=#{bbS},ccS=#{ccS},aaA=#{aaA},bbA=#{bbA},ccA=#{ccA},aaSS=#{aaSS},aaC=#{aaC},ddS=#{ddS}
+        where B=#{B}
+    </update>
+
+    <select id="selectAll" resultType="com.tencent.model.C">
+        select * from C
+    </select>
+</mapper>

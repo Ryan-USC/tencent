@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tencent.dao.BDao">
+
+    <select id="selectById" resultType="com.tencent.model.B">
+        select A,B,C,D,E,aa,bb,cc,dd,ee,aa_correct,bb_correct,cc_correct,dd_correct,ee_correct
+        from B where A=#{A} and B=#{B}
+    </select>
+    <select id="selectByB" resultType="com.tencent.model.B">
+        select A,B,C,D,E,aa,bb,cc,dd,ee,aa_correct,bb_correct,cc_correct,dd_correct,ee_correct
+        from B where B=#{B}
+    </select>
+
+    <select id="selectAll" resultType="com.tencent.model.B">
+        select * from B
+    </select>
+
+    <insert id="insertB" parameterType="com.tencent.model.B">
+        insert into B(A,B,C,D,E,F,aa,aa_correct,bb,bb_correct,cc,cc_correct,dd,dd_correct,ee,ee_correct)
+        values(#{A},#{B},#{C},#{D},#{E},#{F},#{aa},#{aa_correct},#{bb},#{bb_correct},#{cc},#{cc_correct},#{dd},#{dd_correct},#{ee},#{ee_correct})
+    </insert>
+
+    <update id="updateB" parameterType="com.tencent.model.B">
+        update B set C=#{C},D=#{D},E=#{E},F=#{F},aa=#{aa},aa_correct=#{aa_correct},bb=#{bb},bb_correct=#{bb_correct},cc=#{cc},cc_correct=#{cc_correct},dd=#{dd},dd_correct=#{dd_correct},ee=#{ee},ee_correct=#{ee_correct}
+        where A=#{A} and B=#{B}
+    </update>
+
+    <delete id="deleteB" parameterType="String">
+        delete from B where A=#{id} and B=#{B}
+    </delete>
+
+    <delete id="deleteByB" parameterType="String">
+        delete from B where B=#{B}
+    </delete>
+
+    <select id="sumBaa" resultType="int">
+        select sum(aa) from A;
+    </select>
+
+    <select id="sumBbb" resultType="int">
+        select sum(bb) from A;
+    </select>
+
+    <select id="sumBcc" resultType="int">
+        select sum(cc) from A;
+    </select>
+
+    <select id="sumBdd" resultType="int">
+        select sum(dd) from A;
+    </select>
+
+    <select id="sumBee" resultType="int">
+        select sum(ee) from A;
+    </select>
+
+
+</mapper>

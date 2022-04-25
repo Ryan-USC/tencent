@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tencent.dao.ADao">
+
+    <select id="selectById" resultType="com.tencent.model.A">
+        select A,B,C,D,E,aa,bb,cc,dd,ee from A where A=#{id}
+    </select>
+
+    <select id="selectByParameter" parameterType="int" resultType="com.tencent.model.A">
+        select * from A where A like '%#{slice}%'
+    </select>
+
+    <insert id="insertA" parameterType="com.tencent.model.A">
+        insert into A(A,B,C,D,E,F,aa,bb,cc,dd,ee) values(#{A},#{B},#{C},#{D},#{E},#{F},#{aa},#{bb},#{cc},#{dd},#{ee})
+    </insert>
+
+    <update id="updateA" parameterType="com.tencent.model.A">
+        update A set B=#{B},C=#{C},D=#{D},E=#{E},F=#{F},aa=#{aa},bb=#{bb},cc=#{cc},dd=#{dd},ee=#{ee} where A=#{A}
+    </update>
+
+    <delete id="deleteA" parameterType="com.tencent.model.A">
+        delete from A where A=#{id}
+    </delete>
+
+    <select id="sumAaa" resultType="int">
+        select sum(aa) from A;
+    </select>
+
+    <select id="sumAbb" resultType="int">
+        select sum(bb) from A;
+    </select>
+
+    <select id="sumAcc" resultType="int">
+        select sum(cc) from A;
+    </select>
+
+    <select id="sumAdd" resultType="int">
+        select sum(dd) from A;
+    </select>
+
+    <select id="sumAee" resultType="int">
+        select sum(ee) from A;
+    </select>
+
+</mapper>
